@@ -1,0 +1,8 @@
+/.vs/*.json
+/.vs/coroutine/v16/*.suo
+/.vs/coroutine/v16/*.db
+/.vs/coroutine/v16/*.db-shm
+/.vs/coroutine/v16/*.db-wal
+/.vs/coroutine/v16/*.opendb
+/.vs/coroutine/v16/ipch/AutoPCH/d8416bf2ae59abc5/*.ipch
+/.vs/*.sqlite
