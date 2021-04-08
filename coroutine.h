@@ -31,11 +31,11 @@ public:
     Schedule();
     virtual ~Schedule();
 
-    int coroutine_new(Schedule* schedule, coroutine_func func, void* ud);
-    void coroutine_resume(Schedule* schedule, int id);
-    int coroutine_status(Schedule* schedule, int id);
-    int coroutinue_running(Schedule* schedule);
-    void coroutinue_yield(Schedule* schedule);
+    int coroutine_new(coroutine_func func, void* ud);
+    void coroutine_resume(int id);
+    int coroutine_status(int id);
+    int coroutinue_running();
+    void coroutinue_yield();
 };
 
 

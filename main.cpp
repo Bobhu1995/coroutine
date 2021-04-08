@@ -10,8 +10,8 @@ static void foo(Schedule* S, void* ud) {
     int start = arg->n;
     int i;
     for (i = 0; i < 10; ++i) {
-        printf("coroutine %d : %d\n", S->coroutinue_running(S), start + i);
-        S->coroutinue_yield(S);
+        printf("coroutine %d : %d\n", S->coroutinue_running(), start + i);
+        S->coroutinue_yield();
     }
 }
 
@@ -19,12 +19,12 @@ static void test(Schedule* S) {
     args arg1 = { 0 };
     args arg2 = { 100 };
     
-    int co1 = S->coroutine_new(S, foo, &arg1);
-    int co2 = S->coroutine_new(S, foo, &arg2);
+    int co1 = S->coroutine_new(foo, &arg1);
+    int co2 = S->coroutine_new(foo, &arg2);
     printf("main start!\n");
-    while (S->coroutine_status(S, co1) && S->coroutine_status(S, co2)) {
-        S->coroutine_resume(S, co1);
-        S->coroutine_resume(S, co2);
+    while (S->coroutine_status(co1) && S->coroutine_status(co2)) {
+        S->coroutine_resume(co1);
+        S->coroutine_resume(co2);
     }
 
     printf("main end\n");
